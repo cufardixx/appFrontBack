@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/web/script.js" defer></script>
+    <title>Conexion Froend y Backend</title>
+</head>
+<body>
+    <div>
+        <form id="guardarTransaccion">
+            <h1>App de Transacciones</h1>
+
+            <div>
+                <label for="descripcionTransaccion">Ingrese una descripción</label>
+                <input type="text" id="descripcionTransaccion" placeholder="Descripción">
+            </div>
+            <div>
+                <label for="precioTransaccion">Ingrese el precio</label>
+                <input type="number" id="precioTransaccion" placeholder="Precio">
+            </div>
+            <div>
+                <button type="submit">Guardar transacción</button>
+            </div>
+        </form>
+
+        <section>
+            <button id="botonVer">Ver Transacciones</button>
+            <div id="verTransacciones"></div>
+        </section>
+
+    </div>
+</body>
+</html>
