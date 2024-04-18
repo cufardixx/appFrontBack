@@ -1,1 +1,2 @@
-\api\node_modules\
+# Ignorar la carpeta de módulos dentro de la carpeta "api"
+api/node_modules/
