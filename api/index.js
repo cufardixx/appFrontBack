@@ -1,9 +1,14 @@
 const express = require('express')
 const cors = require('cors')
+const bodyParser = require('body-parser');
 
 const app = express()
 const PORT = 3000
 let arrayTransacciones = []
+
+
+// Middleware para analizar el cuerpo de las solicitudes entrantes como JSON
+app.use(bodyParser.json());
 
 //Procesar datos enviados mediante formularios HTML 
 app.use(express.urlencoded({
@@ -30,9 +35,17 @@ app.get('/transaccion', (req, res)=>{
 app.post('/transaccion', (req, res)=>{
     //console.log(req.body);
     let respuestaTransaccion = req.body
+    let desc = respuestaTransaccion.ID;
+    console.log(desc);
+
     arrayTransacciones.push(respuestaTransaccion)
     console.log(arrayTransacciones);
     res.send("OK!")
+})
+
+
+app.delete('/transaccion', (req,res)=>{
+    const id = req.params.ID
 })
 
 
