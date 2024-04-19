@@ -5,7 +5,7 @@ const divTransacciones = document.getElementById('verTransacciones')
 let ID= 0
 
 
-
+ver()
 elementoFormulario.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -45,12 +45,12 @@ elementoFormulario.addEventListener("submit", (event) => {
             console.error('Error de red:', error);
         });
     } 
+
+    ver()
 });
 
 
-
-
-botonVer.addEventListener("click", () => {
+function ver(){
     fetch('http://localhost:3000/transaccion')
         .then(x => x.json())
         .then(data => {
@@ -71,4 +71,5 @@ botonVer.addEventListener("click", () => {
         .catch(error => {
             console.error('Error de solicitud:', error);
         });
-});
+}
+

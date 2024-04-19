@@ -1,0 +1,77 @@
+
+body{
+    background-color:  #121212;
+    color:  #ffff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+.titulo{
+    color: #a688fa;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.containerSecundario{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    gap: 20px;
+    background-color: #282828 ;
+    box-shadow: 0px 0px 25px -1px rgba(166,136,250,0.1);
+    border: 1px solid white;
+}
+
+.form{
+    
+}
+
+.ingreso{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    gap: 10px;
+    align-items: center;
+}
+
+input{
+    border: none;
+    width: 85%;
+    text-decoration: none;
+    font-size: 12px;
+    padding: 10px;
+    
+}
+.desplegable{
+    width: 90%;
+    text-align: center;
+}
+
+.btn{
+    padding: 15px 5px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #a688fa;
+    color: white;
+    box-shadow: 0px 0px 45px -10px rgba(145,113,248,0.4);
+}
+.btn:hover{
+    background-color: #9171f8;
+    box-shadow: 0px 0px 45px -10px rgba(166,136,250,0.4);
+}
+
+.transacciones{
+    border: white 1px solid;
+    height: 100%;
+}
+
+ul{
+    padding: 0;
+}

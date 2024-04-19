@@ -4,38 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/web/script.js" defer></script>
+    <link rel="stylesheet" href="/web/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    </style>
     <title>Conexion Froend y Backend</title>
 </head>
 <body>
-    <div>
-        <form id="guardarTransaccion">
-            <h1>App de Transacciones</h1>
-
-            <div>
-                <label for="descripcionTransaccion">Ingrese una descripción</label>
-                <input type="text" id="descripcionTransaccion" placeholder="Descripción">
-            </div>
-            <div>
-                <label for="precioTransaccion">Ingrese el precio</label>
-                <input type="number" id="precioTransaccion" placeholder="Precio">
-            </div>
-
-            <select id="opciones" name="opciones">
-                <option value="opcion1">Opción 1</option>
-                <option value="opcion2">Opción 2</option>
-                <option value="opcion3">Opción 3</option>
-            </select>
-              
-            <div>
-                <button type="submit">Guardar transacción</button>
-            </div>
-        </form>
-
-        <section>
-            <button id="botonVer">Ver Transacciones</button>
-            <div id="verTransacciones"></div>
-        </section>
-
+    <div class="container">
+        <div class="containerSecundario">
+            <form id="guardarTransaccion" class="form">
+                <h1 class="titulo">App de Transacciones</h1>
+    
+                <div class="ingreso">
+                    <label for="descripcionTransaccion">Ingrese la descripción</label>
+                    <input type="text" id="descripcionTransaccion" placeholder="Descripción">
+               
+                    <label for="precioTransaccion">Ingrese el precio</label>
+                    <input type="number" id="precioTransaccion" placeholder="Precio">
+                
+                    <label for="precioTransaccion">Ingrese una opción</label>
+                    <select id="opciones" name="opciones" class="ingreso desplegable">
+                        <option value="opcion1">Opción 1</option>
+                        <option value="opcion2">Opción 2</option>
+                        <option value="opcion3">Opción 3</option>
+                    </select>
+                  
+                
+                    <button type="submit" class="btn">Guardar transacción</button>
+                </div>
+            </form>
+    
+            <section class="transacciones">
+                <div id="verTransacciones"></div>
+            </section>
+        </div>
     </div>
 </body>
 </html>
