@@ -5,7 +5,7 @@ const divTransacciones = document.getElementById('verTransacciones')
 let ID= 1
 
 
-
+ver()
 elementoFormulario.addEventListener("submit", (event) => {
     event.preventDefault();
 
