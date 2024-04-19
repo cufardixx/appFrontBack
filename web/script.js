@@ -1,7 +1,8 @@
 
 const elementoFormulario = document.getElementById('guardarTransaccion')
 const botonVer = document.getElementById('botonVer')
-const divTransacciones = document.getElementById('verTransacciones')
+const tablaTransacciones = document.getElementById('verTransacciones')
+const tbody = tablaTransacciones.querySelector("tbody");
 let ID = 1
 
 
@@ -58,17 +59,22 @@ function ver(){
         .then(x => x.json())
         .then(data => {
             // Limpiar los elementos existentes antes de agregar nuevos
-            divTransacciones.innerHTML = '';
+            tbody.innerHTML = "";
 
             data.forEach(transaccion => {
                 
-                const mostrarTransacciones = document.createElement('ul');
+                const fila = document.createElement("tr");
 
                 // Asignar las propiedades de la transacción al texto del elemento 
-                mostrarTransacciones.textContent = `Descripción: ${transaccion.descripcionTransaccion}, Precio: $ ${transaccion.precioTransaccion}, Tipo: ${transaccion.valorSeleccionado}, fecha: ${transaccion.fecha}` 
+                fila.innerHTML = `
+                <td>${transaccion.descripcionTransaccion}</td>
+                <td>${transaccion.precioTransaccion}</td>
+                <td>${transaccion.valorSeleccionado}</td>
+                <td>${transaccion.fecha}</td>
+              `;
 
-                // Agregar el elemento al contenedor divTransacciones
-                divTransacciones.appendChild(mostrarTransacciones);
+                // Agregar el elemento al contenedor tablaTransacciones
+                tbody.appendChild(fila);
             });
         })
         .catch(error => {
