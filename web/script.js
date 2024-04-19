@@ -2,14 +2,14 @@
 const elementoFormulario = document.getElementById('guardarTransaccion')
 const botonVer = document.getElementById('botonVer')
 const divTransacciones = document.getElementById('verTransacciones')
-let ID= 1
+let ID = 1
 
 
 ver()
 elementoFormulario.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    
+    let fecha = new Date().toLocaleDateString({ weekday:"short", year:"numeric", month:"short", day:"numeric"}) 
     let descripcionTransaccion = document.getElementById('descripcionTransaccion').value;
     let precioTransaccion = document.getElementById('precioTransaccion').value;
     let valorSeleccionado = document.getElementById('opciones').value;
@@ -19,7 +19,8 @@ elementoFormulario.addEventListener("submit", (event) => {
         descripcionTransaccion: descripcionTransaccion,
         precioTransaccion: precioTransaccion,
         valorSeleccionado: valorSeleccionado,
-        id: ID
+        id: ID,
+        fecha: fecha
     };
 
     // Convertir el objeto a JSON
@@ -64,7 +65,7 @@ function ver(){
                 const mostrarTransacciones = document.createElement('ul');
 
                 // Asignar las propiedades de la transacción al texto del elemento 
-                mostrarTransacciones.textContent = `Descripción: ${transaccion.descripcionTransaccion}, Precio: $ ${transaccion.precioTransaccion}, Tipo: ${transaccion.valorSeleccionado}` 
+                mostrarTransacciones.textContent = `Descripción: ${transaccion.descripcionTransaccion}, Precio: $ ${transaccion.precioTransaccion}, Tipo: ${transaccion.valorSeleccionado}, fecha: ${transaccion.fecha}` 
 
                 // Agregar el elemento al contenedor divTransacciones
                 divTransacciones.appendChild(mostrarTransacciones);
