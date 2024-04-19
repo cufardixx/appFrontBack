@@ -51,6 +51,7 @@ input{
 .desplegable{
     width: 90%;
     text-align: center;
+    padding: 10px;
 }
 
 .btn{

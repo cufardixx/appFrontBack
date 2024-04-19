@@ -2,14 +2,14 @@
 const elementoFormulario = document.getElementById('guardarTransaccion')
 const botonVer = document.getElementById('botonVer')
 const divTransacciones = document.getElementById('verTransacciones')
-let ID= 0
+let ID= 1
 
 
-ver()
+
 elementoFormulario.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    ID++;
+    
     let descripcionTransaccion = document.getElementById('descripcionTransaccion').value;
     let precioTransaccion = document.getElementById('precioTransaccion').value;
     let valorSeleccionado = document.getElementById('opciones').value;
@@ -28,6 +28,8 @@ elementoFormulario.addEventListener("submit", (event) => {
 
     // Verificar si la descripción de la transacción no está vacía
     if (descripcionTransaccion !== '') {
+        ID++;
+        
         // Enviar una solicitud POST con los datos del formulario
         fetch('http://localhost:3000/transaccion', {
             method: 'POST',
