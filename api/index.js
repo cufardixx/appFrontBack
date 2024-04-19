@@ -32,7 +32,10 @@ app.post('/transaccion', (req, res)=>{
     let respuestaTransaccion = req.body
     arrayTransacciones.push(respuestaTransaccion)
     console.log(arrayTransacciones);
+    res.send("OK!")
 })
+
+
 
 // GET -> miPc/transaccion -> Devolve las Trasnsacciones
 //POST -> miPc/trasacciones con una {Transaccion} -> Guarda la transaccion

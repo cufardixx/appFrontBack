@@ -2,32 +2,53 @@
 const elementoFormulario = document.getElementById('guardarTransaccion')
 const botonVer = document.getElementById('botonVer')
 const divTransacciones = document.getElementById('verTransacciones')
+let ID= 0
 
 
-elementoFormulario.addEventListener("submit", (event)=>{
-    event.preventDefault()
-    let descripcionTransaccion = document.getElementById('descripcionTransaccion').value
-    let precioTransaccion = document.getElementById('precioTransaccion').value
 
-    //crear el objeto donde va a estar la info anteriror
-    let objetoTransaccion = {descripcionTransaccion: descripcionTransaccion , precioTransaccion:precioTransaccion}
-    //transformarlo en un JSON
-    let objetoTransaccionJSON = JSON.stringify(objetoTransaccion)
+elementoFormulario.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    ID++;
+    let descripcionTransaccion = document.getElementById('descripcionTransaccion').value;
+    let precioTransaccion = document.getElementById('precioTransaccion').value;
+    let valorSeleccionado = document.getElementById('opciones').value;
+
+    // Crear el objeto con la información recolectada
+    let objetoTransaccion = {
+        descripcionTransaccion: descripcionTransaccion,
+        precioTransaccion: precioTransaccion,
+        valorSeleccionado: valorSeleccionado,
+        id: ID
+    };
+
+    // Convertir el objeto a JSON
+    let objetoTransaccionJSON = JSON.stringify(objetoTransaccion);
     console.log(objetoTransaccionJSON);
 
-    if(descripcionTransaccion, descripcionTransaccion != ''){
-         //envio a esa URL mando un POST con ese cuerpo
+    // Verificar si la descripción de la transacción no está vacía
+    if (descripcionTransaccion !== '') {
+        // Enviar una solicitud POST con los datos del formulario
         fetch('http://localhost:3000/transaccion', {
-        method: 'Post',
-        body: objetoTransaccionJSON
-    })
-    }
+            method: 'POST',
+            body: objetoTransaccionJSON
+        })
+        .then(response => {
+            // Verificar si la solicitud fue exitosa
+            if (response.ok) {
+                console.log('¡Datos enviados correctamente!');
+            } else {
+                console.error('Error al enviar los datos');
+            }
+        })
+        .catch(error => {
+            console.error('Error de red:', error);
+        });
+    } 
+});
 
-    
 
 
-   
-})
 
 botonVer.addEventListener("click", () => {
     fetch('http://localhost:3000/transaccion')
@@ -41,7 +62,7 @@ botonVer.addEventListener("click", () => {
                 const mostrarTransacciones = document.createElement('ul');
 
                 // Asignar las propiedades de la transacción al texto del elemento 
-                mostrarTransacciones.textContent = `Nombre: ${transaccion.descripcionTransaccion}, Precio: ${transaccion.precioTransaccion}`;
+                mostrarTransacciones.textContent = `Descripción: ${transaccion.descripcionTransaccion}, Precio: $ ${transaccion.precioTransaccion}, Tipo: ${transaccion.valorSeleccionado}` 
 
                 // Agregar el elemento al contenedor divTransacciones
                 divTransacciones.appendChild(mostrarTransacciones);
